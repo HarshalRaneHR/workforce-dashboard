@@ -47,9 +47,12 @@ body {
 .app {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 30px clamp(20px, 4vw, 64px) 72px;
+  padding: 30px clamp(20px, 4vw, 64px) 30px;
 }
 .impact-burst {
   position: fixed;

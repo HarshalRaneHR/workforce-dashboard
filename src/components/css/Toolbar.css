@@ -1,5 +1,9 @@
 .panel {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
   border-radius: calc(var(--r) + 6px);
   background: linear-gradient(
     180deg,

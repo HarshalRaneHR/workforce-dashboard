@@ -6,18 +6,16 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import "./css/EmployeeGrid.css";
 
-import {
-  DepartmentCell,
-  IdentityCell,
-  LocationCell,
-  PerformanceCell,
-  ProjectsCell,
-  SalaryCell,
-  SkillsCell,
-  SkillsTooltip,
-  StatusCell,
-  TenureCell,
-} from "./cells";
+import IdentityCell from "./cells/IdentityCell";
+import DepartmentCell from "./cells/DepartmentCell";
+import PerformanceCell from "./cells/PerformanceCell";
+import SalaryCell from "./cells/SalaryCell";
+import ProjectsCell from "./cells/ProjectsCell";
+import StatusCell from "./cells/StatusCell";
+import SkillsCell from "./cells/SkillsCell";
+import SkillsTooltip from "./cells/SkillsTooltip";
+import TenureCell from "./cells/TenureCell";
+import LocationCell from "./cells/LocationCell";
 import type { Employee, EmployeeGridProps } from "../types";
 
 const EmployeeGrid = ({ rows, quickFilterText }: EmployeeGridProps) => {
@@ -132,7 +130,6 @@ const EmployeeGrid = ({ rows, quickFilterText }: EmployeeGridProps) => {
         headerHeight={50}
         animateRows
         suppressCellFocus
-        domLayout="autoHeight"
         pagination
         paginationPageSize={10}
         paginationPageSizeSelector={[10, 20]}
