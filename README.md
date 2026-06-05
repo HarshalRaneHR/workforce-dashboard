@@ -5,7 +5,9 @@ An immersive, editorial workforce dashboard built with **React + TypeScript**,
 through a fully custom grid theme, bespoke cell renderers, animated KPI cards
 and a warm ivory-paper aesthetic.
 
-![XYZ dashboard preview](./public/preview.png)
+**🔗 Live demo: [workforce-dashboard-mu.vercel.app](https://workforce-dashboard-mu.vercel.app/)**
+
+[![XYZ dashboard preview](./public/preview.png)](https://workforce-dashboard-mu.vercel.app/)
 
 ## Highlights
 
