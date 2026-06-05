@@ -1,0 +1,10 @@
+.loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.loc svg {
+  color: var(--text-faint);
+}

@@ -1,0 +1,16 @@
+.tenure {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.tenure-years {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.tenure-date {
+  font-size: 11px;
+  color: var(--text-faint);
+}

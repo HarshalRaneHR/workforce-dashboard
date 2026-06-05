@@ -1,0 +1,115 @@
+.dept-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 2 1 auto;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 99px;
+  background: rgba(28, 22, 12, 0.035);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: var(--ui);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.28s var(--ease);
+  white-space: nowrap;
+}
+.filter-chip .chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent, var(--gold));
+  opacity: 0.65;
+  transition: all 0.28s var(--ease);
+}
+.filter-chip:hover {
+  color: var(--text);
+  border-color: var(--line-2);
+}
+.filter-chip.on {
+  color: var(--text);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent, var(--gold)) 30%, #fff);
+  border-color: color-mix(
+    in srgb,
+    var(--accent, var(--gold-deep)) 75%,
+    transparent
+  );
+  box-shadow: 0 1px 7px -2px color-mix(in srgb, var(--accent, var(--gold)) 60%, transparent);
+}
+.filter-chip.on .chip-dot {
+  opacity: 1;
+  box-shadow: 0 0 9px var(--accent);
+}
+.filter-chip.toggle {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.filter-chip.toggle.on {
+  color: var(--gold);
+  border-color: var(--gold-deep);
+  background: var(--gold-glow);
+}
+.app.live .filter-chip {
+  animation: chipDrop 0.5s var(--pop) both;
+}
+.app.live .dept-filters .filter-chip:nth-child(1) {
+  animation-delay: 0.72s;
+}
+.app.live .dept-filters .filter-chip:nth-child(2) {
+  animation-delay: 0.78s;
+}
+.app.live .dept-filters .filter-chip:nth-child(3) {
+  animation-delay: 0.84s;
+}
+.app.live .dept-filters .filter-chip:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.app.live .dept-filters .filter-chip:nth-child(5) {
+  animation-delay: 0.96s;
+}
+.app.live .dept-filters .filter-chip:nth-child(6) {
+  animation-delay: 1.02s;
+}
+@keyframes chipDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.filter-chip.on {
+  position: relative;
+  overflow: hidden;
+}
+.filter-chip.on::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 62%
+  );
+  transform: translateX(-160%);
+  animation: streak 0.6s ease;
+}
+@keyframes streak {
+  to {
+    transform: translateX(160%);
+  }
+}

@@ -1,0 +1,127 @@
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.stat-card {
+  position: relative;
+  padding: 22px 22px 18px;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.04),
+    0 16px 32px -24px rgba(60, 45, 20, 0.28);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.stat-card:hover {
+  border-color: var(--line-2);
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.05),
+    0 22px 44px -24px rgba(60, 45, 20, 0.35);
+}
+.stat-index {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  opacity: 0.55;
+}
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.stat-value {
+  margin-top: 20px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 44px);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.stat-foot {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.stat-hint {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.01em;
+  max-width: 60%;
+  line-height: 1.4;
+}
+.spark {
+  width: 84px;
+  height: 32px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.spark-line {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.spark-area {
+  fill: var(--gold-glow);
+  opacity: 0.45;
+}
+.spark-head {
+  fill: var(--gold);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.stat-card:hover .spark-line {
+  animation: sparkDraw 1.15s var(--ease);
+}
+.stat-card:hover .spark-area {
+  animation: sparkFill 1.15s var(--ease);
+}
+.stat-card:hover .spark-head {
+  animation: sparkHead 1.15s var(--ease);
+}
+@keyframes sparkDraw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes sparkFill {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 0.45;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes sparkHead {
+  0%,
+  72% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

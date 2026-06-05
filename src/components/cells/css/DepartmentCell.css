@@ -1,0 +1,51 @@
+.dept-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px 5px 9px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, #6b5a3a);
+}
+.dept-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+/* glint sweep across the pill as its row is hovered */
+.dept-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 62%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  background-position: 200% 0;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.grid-shell .ag-row:hover .dept-pill::after {
+  opacity: 1;
+  animation: glintPos 0.6s ease;
+}
+@keyframes glintPos {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}

@@ -1,0 +1,98 @@
+.skills {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.skill-chip {
+  flex: 0 1 auto;
+  min-width: 40px;
+  max-width: 140px;
+  padding: 4px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: rgba(28, 22, 12, 0.04);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.skill-chip.more {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 0;
+  overflow: visible;
+  color: var(--gold);
+  border-color: color-mix(in srgb, var(--gold-deep) 45%, transparent);
+  background: var(--gold-glow);
+  font-family: var(--mono);
+  letter-spacing: 0.02em;
+}
+/* gentle, compositor-only glow so the +N reads as "more — hover me" */
+.skill-chip.more::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9px;
+  background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  animation: morePulse 2.8s ease-in-out infinite;
+}
+@keyframes morePulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+.grid-shell .ag-row:hover .skill-chip.more {
+  color: var(--gold);
+  border-color: var(--gold-deep);
+  box-shadow: 0 0 14px -2px var(--gold-glow);
+}
+.skill-chip:hover {
+  color: var(--text);
+  border-color: var(--gold-deep);
+  background: var(--gold-glow);
+}
+/* staggered pop of the skill chips when their row is hovered */
+.grid-shell .ag-row:hover .skill-chip {
+  animation: chipPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.grid-shell .ag-row:hover .skill-chip:not(.more) {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--gold-deep) 60%, transparent);
+}
+.grid-shell .ag-row:hover .skill-chip:nth-child(1) {
+  animation-delay: 0s;
+}
+.grid-shell .ag-row:hover .skill-chip:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.grid-shell .ag-row:hover .skill-chip:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.grid-shell .ag-row:hover .skill-chip:nth-child(4) {
+  animation-delay: 0.15s;
+}
+@keyframes chipPop {
+  0% {
+    transform: translateY(5px) scale(0.85);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

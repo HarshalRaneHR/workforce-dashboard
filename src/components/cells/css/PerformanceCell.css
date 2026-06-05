@@ -1,0 +1,44 @@
+.perf {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.stars {
+  position: relative;
+  display: inline-flex;
+  font-size: 13px;
+  line-height: 1;
+}
+.stars-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+/* empty (track) stars sit underneath */
+.stars > .stars-row {
+  color: rgba(28, 22, 12, 0.18);
+}
+/* gold fill layer, clipped to the rating width */
+.stars-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.stars-fill .stars-row {
+  color: var(--gold);
+}
+/* top performers shine green */
+.perf[data-tier="elite"] .stars-fill .stars-row {
+  color: #1f8f53;
+}
+.perf-val {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  min-width: 26px;
+}

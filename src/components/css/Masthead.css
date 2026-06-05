@@ -1,0 +1,39 @@
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.brand-mark {
+  color: var(--gold);
+  font-size: 20px;
+  transform: translateY(2px);
+  text-shadow: 0 0 18px var(--gold-glow);
+}
+.brand-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+}
+.brand-sub {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.app.live .brand-name {
+  position: relative;
+}

@@ -1,0 +1,62 @@
+:root {
+  --ink: #ece6d8;
+  --ink-2: #f5f0e5;
+  --paper: rgba(28, 22, 12, 0.022);
+  --paper-2: rgba(28, 22, 12, 0.05);
+  --line: rgba(28, 22, 12, 0.1);
+  --line-2: rgba(28, 22, 12, 0.17);
+
+  --text: #211b12;
+  --text-dim: #5a5246;
+  --text-faint: #8a8175;
+
+  --gold: #b07d2a;
+  --gold-deep: #8c601a;
+  --gold-glow: rgba(176, 125, 42, 0.16);
+
+  /* department palette */
+  --dept-engineering: #7dd3fc;
+  --dept-engineering-glow: rgba(125, 211, 252, 0.16);
+  --dept-marketing: #f0abfc;
+  --dept-marketing-glow: rgba(240, 171, 252, 0.16);
+  --dept-sales: #fcd34d;
+  --dept-sales-glow: rgba(252, 211, 77, 0.16);
+  --dept-hr: #86efac;
+  --dept-hr-glow: rgba(134, 239, 172, 0.16);
+  --dept-finance: #fda4af;
+  --dept-finance-glow: rgba(253, 164, 175, 0.16);
+
+  --display: "Fraunces", Georgia, serif;
+  --ui: "Geist", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --r: 16px;
+  --r-sm: 10px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* department colour binding — any element tagged with [data-dept] exposes
+   --accent / --glow, so components never hard-code hex values */
+[data-dept="Engineering"] {
+  --accent: var(--dept-engineering);
+  --glow: var(--dept-engineering-glow);
+}
+[data-dept="Marketing"] {
+  --accent: var(--dept-marketing);
+  --glow: var(--dept-marketing-glow);
+}
+[data-dept="Sales"] {
+  --accent: var(--dept-sales);
+  --glow: var(--dept-sales-glow);
+}
+[data-dept="HR"] {
+  --accent: var(--dept-hr);
+  --glow: var(--dept-hr-glow);
+}
+[data-dept="Finance"] {
+  --accent: var(--dept-finance);
+  --glow: var(--dept-finance-glow);
+}
+/* shared "power-up" easing used across the page */
+:root {
+  --pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

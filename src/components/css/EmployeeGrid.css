@@ -1,0 +1,176 @@
+.grid-shell {
+  --ag-background-color: transparent;
+  --ag-foreground-color: var(--text);
+  --ag-border-color: var(--line);
+  --ag-row-border-color: var(--line);
+  --ag-header-background-color: rgba(28, 22, 12, 0.025);
+  --ag-header-foreground-color: var(--text-dim);
+  --ag-odd-row-background-color: transparent;
+  --ag-row-hover-color: rgba(243, 201, 105, 0.05);
+  --ag-selected-row-background-color: rgba(243, 201, 105, 0.08);
+  --ag-input-focus-border-color: var(--gold-deep);
+  --ag-range-selection-border-color: var(--gold-deep);
+  --ag-control-panel-background-color: var(--ink-2);
+  --ag-font-family: var(--ui);
+  --ag-font-size: 13.5px;
+  --ag-grid-size: 7px;
+  --ag-borders: none;
+  --ag-wrapper-border-radius: var(--r);
+  --ag-cell-horizontal-padding: 18px;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.42);
+}
+.grid-shell .ag-root-wrapper {
+  background: transparent;
+  border: none;
+}
+.grid-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(243, 201, 105, 0.07),
+    transparent 70%
+  );
+  transition: opacity 0.5s var(--ease);
+  mix-blend-mode: screen;
+}
+.grid-shell:hover .grid-spotlight {
+  opacity: 1;
+}
+.grid-shell .ag-center-cols-container .ag-row,
+.grid-shell .ag-pinned-left-cols-container .ag-row {
+  animation: rowIn 0.6s var(--ease) both;
+}
+@keyframes rowIn {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    clip-path: inset(0 100% 0 0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+.grid-shell .ag-row[row-index="0"] {
+  animation-delay: 0.02s;
+}
+.grid-shell .ag-row[row-index="1"] {
+  animation-delay: 0.06s;
+}
+.grid-shell .ag-row[row-index="2"] {
+  animation-delay: 0.1s;
+}
+.grid-shell .ag-row[row-index="3"] {
+  animation-delay: 0.14s;
+}
+.grid-shell .ag-row[row-index="4"] {
+  animation-delay: 0.18s;
+}
+.grid-shell .ag-row[row-index="5"] {
+  animation-delay: 0.22s;
+}
+.grid-shell .ag-row[row-index="6"] {
+  animation-delay: 0.26s;
+}
+.grid-shell .ag-row[row-index="7"] {
+  animation-delay: 0.3s;
+}
+.grid-shell .ag-row[row-index="8"] {
+  animation-delay: 0.34s;
+}
+.grid-shell .ag-row[row-index="9"] {
+  animation-delay: 0.38s;
+}
+.grid-shell .ag-row[row-index="10"] {
+  animation-delay: 0.42s;
+}
+.grid-shell .ag-row[row-index="11"] {
+  animation-delay: 0.46s;
+}
+.grid-shell .ag-header {
+  border-bottom: 1px solid var(--line-2);
+  backdrop-filter: blur(4px);
+}
+.grid-shell .ag-header-cell-text {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.grid-shell .ag-header-cell-menu-button,
+.grid-shell .ag-header-icon.ag-header-cell-menu-button,
+.grid-shell .ag-floating-filter-button {
+  opacity: 1;
+}
+.grid-shell .ag-header-cell {
+  transition: background 0.25s var(--ease);
+}
+.grid-shell .ag-header-cell:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+.grid-shell .ag-row {
+  transition: background 0.18s ease;
+}
+.grid-shell .ag-row:hover {
+  background: var(--ag-row-hover-color);
+}
+.grid-shell .ag-cell {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.grid-shell .ag-pinned-left-cols-container .ag-cell,
+.grid-shell .ag-pinned-left-header {
+  box-shadow: 14px 0 26px -20px rgba(0, 0, 0, 0.9);
+}
+.grid-shell .ag-cell.num-cell {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+}
+.grid-shell .ag-cell.mgr-cell {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.grid-shell .ag-cell.mgr-cell.muted {
+  color: var(--text-faint);
+}
+.grid-shell .ag-header-cell-resize::after {
+  background: var(--line);
+}
+.grid-shell .ag-icon {
+  color: var(--text-faint);
+}
+.grid-shell .ag-icon-asc,
+.grid-shell .ag-icon-desc {
+  color: var(--gold);
+}
+.grid-shell .ag-popup,
+.grid-shell .ag-menu {
+  border-radius: var(--r-sm);
+}
+
+@media (max-width: 560px) {
+  .grid-shell .ag-paging-panel {
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+  .grid-shell .ag-paging-page-size,
+  .grid-shell .ag-paging-row-summary-panel {
+    display: none;
+  }
+}

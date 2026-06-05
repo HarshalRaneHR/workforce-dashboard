@@ -1,0 +1,12 @@
+.salary {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.salary-cur {
+  color: var(--gold);
+  margin-right: 1px;
+}

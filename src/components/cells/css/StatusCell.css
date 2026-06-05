@@ -1,0 +1,52 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.status .status-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.status.active {
+  color: #1f8f53;
+}
+.status.active .status-pulse {
+  background: #6ee7a8;
+  box-shadow: 0 0 0 0 rgba(110, 231, 168, 0.5);
+  animation: ping 2.4s var(--ease) infinite;
+}
+.status.inactive {
+  color: var(--text-faint);
+}
+.status.inactive .status-pulse {
+  background: #5a554d;
+}
+/* status pill snaps when its row is hovered */
+.grid-shell .ag-row:hover .status .status-pulse {
+  animation: pulsePing 0.5s var(--pop);
+}
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(110, 231, 168, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 7px rgba(110, 231, 168, 0);
+  }
+}
+@keyframes pulsePing {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

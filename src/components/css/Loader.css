@@ -1,0 +1,128 @@
+@keyframes spinGlyph {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(
+      ellipse 80% 55% at 50% 38%,
+      var(--gold-glow),
+      transparent 60%
+    ),
+    radial-gradient(ellipse 120% 90% at 50% 35%, #f7f2e7, var(--ink) 72%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.loader-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+.loader-mark {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(40px, 9vw, 88px);
+  display: flex;
+  align-items: center;
+  gap: 0.28em;
+}
+.loader-glyph {
+  color: var(--gold);
+  font-size: 0.62em;
+  text-shadow: 0 0 30px var(--gold-glow);
+  animation: spinGlyph 4s linear infinite;
+}
+.loader-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-left: 0.46em;
+}
+.loader-bar {
+  margin-top: 22px;
+  width: min(280px, 60vw);
+  height: 2px;
+  background: rgba(28, 22, 12, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+  box-shadow: 0 0 12px var(--gold-glow);
+  border-radius: 99px;
+  animation: loaderSlide 1.15s var(--ease) infinite;
+}
+@keyframes loaderSlide {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(360%);
+  }
+}
+.loader-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+.loader-error {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.loader-error-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.loader-error-msg {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+.loader-retry {
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--line-2);
+  border-radius: 99px;
+  padding: 8px 22px;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.loader-retry:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.loader-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
