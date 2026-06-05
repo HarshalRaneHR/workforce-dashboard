@@ -54,10 +54,8 @@ npm install
 
 npm run dev      # start the dev server (Vite prints the local URL)
 npm run build    # type-check (tsc --noEmit) + production build → dist/
-npm run preview  # serve the production build locally
 ```
 
-> Requires Node 18+.
 
 ## Project structure
 
